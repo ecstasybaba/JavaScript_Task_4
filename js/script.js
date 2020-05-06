@@ -10,6 +10,7 @@ let characterA;
 let characterB; 
 let characterC;
 let record;
+let counter;
 let accurate = 0;
 let accurateScore = 0;
 
@@ -28,13 +29,16 @@ function revealQuestions(){
   record = document.getElementById("record");
 
   if(currentPoint >= arrQuestions.length){
+
     main.innerHTML = "<h4> "+accurate+" out of "+arrQuestions.length+" questions were answered correctly</h4><br />";
-
+    
     record.innerHTML = "<h4>Total score is: "+accurateScore+" </h4>";
-
+    
     document.getElementById("title").innerHTML = "You have reached the end of the Game";
 
     document.getElementById("select").style.display = "none";
+
+    document.getElementById("counter").innerHTML = "SCORE COUNTER: "+accurateScore+"";
 
     currentPoint = 0;
     accurate = 0;
@@ -44,8 +48,9 @@ function revealQuestions(){
   }
 
   
-  document.getElementById("title").innerHTML = ""+(currentPoint + 1)+"";
+  document.getElementById("title").innerHTML = "Quiz Question "+(currentPoint + 1)+"";
   document.getElementById("select").innerHTML = "Select one(1) option from each question";
+  document.getElementById("counter").innerHTML = "SCORE COUNTER: "+accurateScore+"";
 
   question = arrQuestions[currentPoint][0];
   characterA = arrQuestions[currentPoint][1];
